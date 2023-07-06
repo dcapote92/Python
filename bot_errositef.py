@@ -6,7 +6,7 @@ Mix Henrique Jorge
 Grupo Mateus
 '''
 import telebot
-BOT_TOKEN = '5624413581:AAFCWVg1I-ahlzqLC9KwVyVg754exaVKvQY'
+BOT_TOKEN = ''
 bot = telebot.TeleBot(BOT_TOKEN)
 
 erro = 'Código: '
