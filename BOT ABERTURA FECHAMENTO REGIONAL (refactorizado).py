@@ -7,7 +7,7 @@ from aiogram.types import ReplyKeyboardMarkup, KeyboardButton
 import telebot, os
 
 
-botTOKEN = '1817206836:AAEy9RC8EgHbvIYNlkKRPve7k7xwOxbsAKc'
+botTOKEN = ''
 bot = Bot(botTOKEN)
 dp = Dispatcher(bot)
 bott = telebot.TeleBot(botTOKEN,parse_mode='html')
