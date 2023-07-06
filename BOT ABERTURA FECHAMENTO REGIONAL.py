@@ -13,7 +13,7 @@ import telebot
 from telebot import types
 
 
-bot = Bot(token='5962658535:AAFF6qckVwYP-5OmTXlaKZK7wL5HDJLMXmE')
+bot = Bot(token='')
 dp = Dispatcher(bot)
 bot = telebot.TeleBot
 
