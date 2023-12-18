@@ -1,0 +1,303 @@
+GestorTelas:
+    Login:
+        name:'login'
+    Central:
+        name:'central'
+    Pontos:
+        name:'pontos'
+    Relatorio:
+        name:'relatorio'
+
+<Login>:
+    name: 'login'
+
+    Image:
+        source: 'recursos/fundo.png'
+        pos: self.pos
+        size: self.size
+        
+    MDTextField:
+        id: edtUsuario
+        hint_text: 'Usuário'
+        helper_text: 'Limite de caracteres excedido'
+        helper_text_mode:'on_error'
+        max_text_length: 32
+        icon_right: 'account'
+        pos_hint: {'center_x': 0.5,'center_y': 0.6}
+        size_hint_x: .8
+        write_tab: False
+        mode: 'fill'
+    
+    MDTextField:
+        id: edtSenha
+        hint_text: 'Senha'
+        helper_text: 'Limite de caracteres excedido'
+        helper_text_mode:'on_error'
+        max_text_length: 16
+        icon_right: 'form-textbox-password'
+        password: True
+        password_mask: '•'
+        pos_hint: {'center_x': 0.5,'center_y': 0.45}
+        size_hint_x: .8
+        write_tab: False
+        mode: 'fill'
+
+    MDIconButton:
+        id: btnAcesso
+        text: 'Acessar'
+        pos_hint: {'center_x': 0.5,'center_y': 0.3}
+        icon: 'recursos/login.png'
+        icon_size: '64dp'
+        on_release: 
+            app.root.transition.direction = "left" 
+            app.check_usuario(edtUsuario.text, edtSenha.text, sucesso) 
+
+    MDCard:
+        id:sucesso
+        size_hint: 0, 0 
+        Image:
+            source: 'recursos/card.png'
+            pos: self.pos
+            size: self.size
+    
+    Image:
+        source: "recursos/logo_color.png"
+        size_hint: .8, .8
+        pos_hint: {'center_x': 0.5,'center_y': 0.8}
+    
+
+<Central>:
+    name: 'central'
+
+    Image:
+        source: 'recursos/fundo_central.png'
+        pos: self.pos
+        size: self.size
+
+    Image:
+        source: 'recursos/mateus_cora.png'
+        pos_hint: {'center_x': 0.5,'center_y': 0.8}
+        size_hint: .5, .5
+        opacity: 0.5
+    
+    Image:
+        source: 'recursos/logo_branco_grupo.png'
+        pos_hint: {'center_x': .5, 'center_y':.1}
+   
+    MDBoxLayout:
+        id: btnPontos
+        pos_hint: {'center_x': .5, 'center_y': .6}
+        size_hint: .6, .1
+        spacing: '64dp'
+        canvas:
+            Color:
+                rgba: 160/255, 174/255, 176/255 , .2
+            RoundedRectangle: 
+                pos: self.pos
+                size: self.size
+        MDRectangleFlatIconButton: 
+            icon: 'timer-plus-outline'
+            icon_size: '42px'
+            size_hint: 1 , 1
+            text: 'Pontos'
+            line_color: 0, 0, 0, 0
+            on_release: 
+                app.root.transition.direction = "left" 
+                app.tela_pontos()
+    
+    MDBoxLayout:
+        id: btnRelatorio
+        pos_hint: {'center_x': .5, 'center_y': .48}
+        size_hint: .6, .1
+        spacing: '64dp'
+        canvas:
+            Color:
+                rgba: 160/255, 174/255, 176/255 , .2
+            RoundedRectangle: 
+                pos: self.pos
+                size: self.size
+        MDRectangleFlatIconButton: 
+            icon: 'list-box-outline'
+            icon_size: '42px'
+            size_hint: 1 , 1
+            text: 'Relatorio'
+            line_color: 0, 0, 0, 0
+            on_release: 
+                app.root.transition.direction = "left"
+                # app.carregar_lista()
+                app.tela_relatorio()        
+    
+    MDBoxLayout:
+        id: btnCalendario
+        pos_hint: {'center_x': .5, 'center_y': .36}
+        size_hint: .6, .1
+        spacing: '64dp'
+        canvas:
+            Color:
+                rgba: 160/255, 174/255, 176/255 , .2
+            RoundedRectangle: 
+                pos: self.pos
+                size: self.size
+        MDRectangleFlatIconButton: 
+            icon: 'calendar-outline'
+            icon_size: '42px'
+            size_hint: 1 , 1
+            text: 'Calendario'
+            line_color: 0, 0, 0, 0
+            # on_release: 
+            #     app.root.transition.direction = "left" 
+            #     app.tela_calendario()      
+
+<Pontos>
+    name: 'pontos'
+    
+    Image: 
+        source:'recursos/fundo_central.png'
+        pos: self.pos
+        size: self.size
+
+    Image:
+        source: 'recursos/mateus_cora.png'
+        pos_hint: {'center_x': 0.5,'center_y': 0.8}
+        size_hint: .5, .5
+        opacity: 0.5
+    
+    Image:
+        source: 'recursos/logo_branco_grupo.png'
+        pos_hint: {'center_x': .5, 'center_y':.1}
+
+
+    MDRectangleFlatButton:
+        id: btnEntrada
+        md_bg_color: [33/255, 150/255, 243/255, .2]
+        pos_hint: {'center_x': 0.5, 'center_y': .65}
+        text: "00:00:00"
+        font_size: 20
+        line_color: [0,0,0,0]
+        on_release: 
+            app.show_time_picker_entrada()
+
+    MDRectangleFlatButton:
+        id: btnSaida_k3
+        md_bg_color: [33/255, 150/255, 243/255, .2]
+        pos_hint: {'center_x': 0.5, 'center_y': .55}
+        text: "00:00:00"
+        font_size: 20
+        line_color: [0,0,0,0]
+        on_release: 
+            app.show_time_picker_saida_k3()
+
+    MDRectangleFlatButton:
+        id: btnVolta_k3
+        md_bg_color: [33/255, 150/255, 243/255, .2]
+        pos_hint: {'center_x': 0.5, 'center_y': .45}
+        text: "00:00:00"
+        font_size: 20
+        line_color: [0,0,0,0]
+        on_release: 
+            app.show_time_picker_volta_k3()
+
+    MDRectangleFlatButton:
+        id: btnSaida
+        md_bg_color: [33/255, 150/255, 243/255, .2]
+        pos_hint: {'center_x': 0.5, 'center_y': .35}
+        text: "00:00:00"
+        font_size: 20
+        line_color: [0,0,0,0]
+        on_release: 
+            app.show_time_picker_saida()
+
+   
+        
+
+    MDBoxLayout:
+        id: btnSalvar
+        pos_hint: {'center_x': 0.7, 'center_y': 0.2}
+        size_hint: .3, .1
+        spacing: '64dp'
+        canvas:
+            Color:
+                rgba: 160/255, 174/255, 176/255 , .2
+            RoundedRectangle: 
+                pos: self.pos
+                size: self.size
+        MDIconButton:
+            icon: 'content-save-outline'
+            size_hint_x: .3
+            on_release:
+                # app.salvaPonto() 
+                app.root.transition.direction = "left" 
+                app.tela_central()
+
+    MDBoxLayout:
+        id: btnSalvar
+        pos_hint: {'center_x': 0.3, 'center_y': 0.2}
+        size_hint: .3, .1
+        spacing: '64dp'
+        canvas:
+            Color:
+                rgba: 160/255, 174/255, 176/255 , .2
+            RoundedRectangle: 
+                pos: self.pos
+                size: self.size
+        MDIconButton:
+            icon: 'arrow-left-bold-outline'
+            size_hint_x: .3
+            on_release: 
+                app.root.transition.direction = "right" 
+                app.tela_central()
+    
+
+
+<Relatorio>:
+    name: 'relatorio'
+
+    Image:
+        source: 'recursos/fundo_central.png'
+        pos: self.pos
+        size: self.size
+    
+    Image:
+        source: 'recursos/mateus_cora.png'
+        pos_hint: {'center_x': 0.5,'center_y': 0.8}
+        size_hint: .5, .5
+        opacity: 0.5
+    
+    Image:
+        source: 'recursos/logo_branco_grupo.png'
+        pos_hint: {'center_x': .5, 'center_y':.1}
+
+    MDBoxLayout:
+        id: contenedor_lista
+        size_hint: .95, .75
+        pos_hint: {'center_x': .5, 'center_y': .6}
+        canvas:
+            Color:
+                rgba: 33/255, 150/255, 243/255, .9
+            RoundedRectangle: 
+                pos: self.pos
+                size: self.size
+        MDScrollView:
+            MDList:
+                id: lista
+    
+    MDBoxLayout:
+        pos_hint: {'center_x': 0.5, 'center_y': 0.18}
+        size_hint: .3, .07
+        spacing: '64dp'
+        canvas:
+            Color:
+                rgba: 33/255, 150/255, 243/255, .4
+            RoundedRectangle: 
+                pos: self.pos
+                size: self.size
+        MDFlatButton: 
+            size_hint: 1 , 1
+            text: "[color=#fcfdff]Voltar[/color]"
+            font_size: "20sp"
+            on_release: 
+                app.root.transition.direction = "right" 
+                app.tela_central()
+    
+    
+

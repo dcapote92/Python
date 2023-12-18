@@ -1,0 +1,111 @@
+body{
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    font-size: x-large;
+}
+
+.logo img{
+    width: 200px;
+}
+
+.data div{
+    padding: 5px 0;
+}
+.container{
+    margin: 10px;
+    padding: 90px;
+    padding-bottom: 10px;
+    width: 748px;
+    height: 1220px;
+    display: flex;
+    flex-direction: column;
+    justify-content: top;
+    align-items: center;
+    gap: 30px;
+}
+
+.container,
+.obs, 
+.checkers{
+    border: 2px solid black;
+    border-radius: 15px;
+}
+ 
+.data{
+    width: 85%;
+}
+
+.checkers{
+    position: relative;
+    width: 90%;
+    padding: 15px 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.checkers::before{
+    content: "";
+    background-image: url(mateus_cora.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    opacity: .1;
+}
+
+.check{
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    gap: 20px;
+}
+
+.check img{
+    height: 2rem;
+}
+
+.obs{
+    width: 75%;
+    padding: 5px 40px ; 
+}
+
+.obs p{
+    position: relative;
+    margin: 0;
+    padding: 15px 0;
+}
+
+.obs hr{
+    margin-top: 0;
+    margin-bottom: 40px;
+}
+
+.firma{
+    display: flex;
+    justify-content: space-between;
+    border-bottom: solid 2px black;
+    height: 3rem;
+    padding: 0 30px;
+    width: 95%;
+}
+
+input{
+    border: none;
+}
+
+.footer{
+    position: relative;
+    bottom: 0;
+    width: 110%;
+    display: flex;
+    justify-content: end;
+    align-items: end;
+}

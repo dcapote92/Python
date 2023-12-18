@@ -1,0 +1,19 @@
+@startuml bate-ponto
+
+class horarios{
+    - args: string
+    - carga_horaria: timedelta
+    - batidas : list
+    + __init__(self, *args)
+    + calcular_saida()
+    + calcular_horas_extra()
+    + intra_jornada()
+    + calcular_ultrapassagem_hora_extra()
+}
+
+class encriptar{
+    + encriptar(valor)
+    + desencriptar(valor)
+}
+
+@enduml

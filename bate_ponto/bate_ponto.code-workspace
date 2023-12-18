@@ -1,0 +1,14 @@
+{
+	"folders": [
+		{
+			"path": "."
+		}
+	],
+	"settings": {
+		"[yaml]": {
+			"editor.tabSize": 4
+		},
+		"git.ignoreLimitWarning": true,
+		"materialkv.pythonFile": "main.py"
+	}
+}
